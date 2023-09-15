@@ -31,7 +31,7 @@ img {
 }
 
 /* Kartička uživatele */
-.karta {
+.user {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -42,12 +42,32 @@ img {
   align-items: center ;
 }
 
-/* Status uživatele */
-.cena {
+.user-status {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.user-price {
   background-color: rgb(204, 204, 204);
   border-radius: 40px;
   padding: 0.5rem;
 }
+.user-availability {
+  border-radius: 40px;
+  padding: 0.5rem;
+}
+
+.user-availability--free {
+  background-color: rgb(105, 228, 126);
+}
+
+.user-availability--not {
+  background-color: rgb(255, 123, 97);
+}
+
+/* Status uživatele */
+
 
 .dostupny {
   border-radius: 40px;
@@ -62,7 +82,7 @@ img {
 }
 
 /* Nastavení avatara */
-.kulata-fotka {
+.user-avatar {
   border-radius: 50%;
   overflow: hidden;
   width: 100px;
@@ -76,40 +96,55 @@ img {
 }
 
 /* Uživatelský text */
-.text {
+.user-info {
   margin-bottom: 10px;
 }
 
-.nadpis {
+.user-heading {
   font-size: 1.5rem;
   margin: 0.5rem 0;
 }
 
 /* První písmeno podpisu větší */
-.popis-uživatele {
+.user-description {
   font-size: 1rem;
   margin: 0;
   line-height: 1.5;
 }
-
-/* Udělat seznam se srdíčky místo odrážek */
-.konicky {
-  padding: 0;
+.user-description::first-letter {
+  font-size: 1.2rem;
 }
 
+/* Udělat seznam se srdíčky místo odrážek */
+.user-hobby {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.user-hobby li::before {
+content: '❤';
+color: red;
+}
 /* Navštívené odkazy jinou barvou */
 /* Po najetí na odkaz by se měl podtrhnout */
 /* Při kliknutí by se měl ztučnit */
 a {
   text-decoration: none;
   color: #007bff;
+  position: relative;
 }
 
-.navstiveny {
+
+a:visited {
   color: #0065d1;
 }
 
-.podtrzeni-tlacitka {
+
+
+.a:hover::after {
+  content: '';
   width: 100%;
   height: 5px;
   background: linear-gradient(270deg, #e1466a 0%, rgba(131,217,255,1) 82%, rgba(131,206,255,1) 100%);
@@ -120,7 +155,7 @@ a {
 
 /* Tlačítka */
 
-.tlačitko {
+.user-button {
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
@@ -128,23 +163,34 @@ a {
   cursor: pointer;
 }
 
+.user-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 0.2rem;
+}
 /* Barvy podle platformy*/
 
-.twitter {
+.user-button--twitter {
   background-color: rgb(29, 155, 240);
   border: 3px solid rgb(29, 155, 240);
 }
 
-.facebook {
+.user-button--facebook {
   background-color: #3b5998;
   border: 3px solid #3b5998;
 }
 
-.instagram {
+.user-button--instagram {
   background-color: #E1466A;
   border: 3px solid #E1466A;
 }
 
 /* Po najetí na tlačítko černý border */
+.user-button:hover {
+  border: 3px solid black;
+}
 
 /* Při kliknutí se tlačítko zmenší o pixel */
+.user-button:active {
+  transform: scale(0.9);
+}
